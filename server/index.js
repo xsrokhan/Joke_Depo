@@ -10,6 +10,7 @@ app.use(express.json())
 app.use(cors())
 
 const connection = process.env.DB_CONNECTION
+const PORT = process.env.PORT || 3001
 
 mongoose.connect(connection, {
     useNewUrlParser: true
@@ -28,6 +29,6 @@ app.post('/newJoke', async (req, res) => {
     }
 })
 
-app.listen(3001, () => {
-    console.log("Server running on port 3001")
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`)
 })

@@ -3,7 +3,6 @@ function getJokes() {
   return fetch("http://localhost:3001/")
     .then(response => response.json())
     .then(data => {
-      console.log(data)
       return data
     })
 }
@@ -104,7 +103,7 @@ function run() {
         document.querySelector('.next').innerHTML = getPrompts()[0]
         memeTimeout = setTimeout(() => {
           displayMemes()
-        }, 2000);
+        }, 4000);
       } else if (result.length === 3) {
         currentJokes.splice(result[2], 1)
         document.querySelector('.question').innerHTML = result[0]
@@ -207,7 +206,6 @@ function run() {
         body: JSON.stringify({
           lang,
           joke,
-
         }),
         headers: {
           'Content-type': 'application/json',

@@ -15,11 +15,13 @@ body::-webkit-scrollbar {
   justify-content: space-evenly;
   align-items: center;
   display: none;
+  padding: 0 0.4rem 0 0.4rem;
+  box-sizing: border-box;
 }
 
 .flagMobile {
-  height: 30px;
-  width: 40px;
+  height: 35px;
+  width: 35px;
   cursor: pointer;
 }
 
@@ -117,8 +119,8 @@ button {
 }
 
 .circle > .Fa, .flagFa {
-  height: 34px;
-  width: 44px;
+  height: 42px;
+  width: 42px;
 }
 
 .lang-btn {
@@ -382,6 +384,53 @@ textarea {
   }
 }
 
+@media (max-width: 600px)  {
+  .flagMobile {
+    height: 20px;
+    width: 20px;
+  }
+  .circle > .Fa, .flagFa {
+    height: 24px;
+    width: 24px;
+  }
+  .newJoke {
+    font-size: 1.3rem;
+  }
+  .circle {
+    height: 35px;
+    width: 35px;
+  }
+  .question {
+    font-size: 1.1rem;
+    margin-bottom: 0rem;
+  }
+  
+  .answer {
+    visibility: hidden;
+    font-size: 1.1rem;
+  }
+  
+  .reveal {
+    visibility: hidden;
+    font-size: 1.3rem;
+    margin-top: 30px;
+    width: 80px
+  }
+  
+  .next {
+    font-size: 1.2rem;
+    margin-bottom: 50px; 
+    display: none;
+  }
+  
+  .reset {
+    font-size: 1.1rem;
+    margin-bottom: 50px;
+    display: none;
+  }
+}
+
+
 @media (max-height: 350px) {
   .mobile-nav {
     display: flex;
@@ -413,6 +462,12 @@ textarea {
 @media (max-width: 525px) {
   .joke-box {
     width: 350px;
+  }
+}
+
+@media (max-width: 300px)  {
+  .joke-box {
+    width: 270px;
   }
 }
 

@@ -195,32 +195,42 @@ function run() {
       document.querySelector("dialog").close()
     })
 
-    document.querySelector(".submit").addEventListener('click', function (e) {
-      e.preventDefault()
-
-      var lang = document.querySelector("select").value
-      var joke = document.querySelector("textarea").value
-
-      fetch("http://localhost:3001/newJoke", {
+    document.querySelector(".login-btn").addEventListener("click", () => {
+      let pw = document.querySelector("input").value
+      fetch("http://localhost:3001/login", {
         method: 'POST',
         body: JSON.stringify({
-          lang,
-          joke,
+          input: pw
         }),
         headers: {
           'Content-type': 'application/json',
         }
-      })
-      document.querySelector("textarea").value = ""
-    });
+      }).then(res => res.json()).then(data => {
 
-    document.querySelector(".login-btn").addEventListener("click", () => {
-      if (document.querySelector("input").value === "totallysafepw") {
         document.querySelector(".login-page").style.display = "none"
         document.querySelector("section").style.opacity = "1"
-      }
-    })
 
+        document.querySelector(".submit").addEventListener('click', function (e) {
+          e.preventDefault()
+
+          var lang = document.querySelector("select").value
+          var joke = document.querySelector("textarea").value
+
+          fetch(`http://localhost:3001/${data.newJoke}`, {
+            method: 'POST',
+            body: JSON.stringify({
+              lang,
+              joke,
+            }),
+            headers: {
+              'Content-type': 'application/json',
+            }
+          })
+          document.querySelector("textarea").value = ""
+        });
+      })
+
+    })
   })
 }
 

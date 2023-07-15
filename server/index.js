@@ -7,7 +7,7 @@ require('dotenv').config()
 const JokeModel = require('./model')
 
 app.use(express.json())
-app.use(cors())
+app.use(cors({origin: '*'}))
 
 const connection = process.env.DB_CONNECTION
 const password = process.env.ADMIN_PW
